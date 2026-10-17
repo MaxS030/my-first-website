@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的生活美學誌</title>
+  <style>
+    body {
+      margin: 0;
+      background: #F5F0E8;
+      color: #23364D;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 28px 8%;
+      border-bottom: 1px solid #D8D0C4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #23364D;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 70px auto;
+      padding: 0 24px;
+    }
+
+    .eyebrow {
+      color: #78866B;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    .intro {
+      max-width: 620px;
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    .palette {
+      display: flex;
+      gap: 12px;
+      margin: 35px 0;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid #D8D0C4;
+    }
+
+    .caption {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .color-item {
+      text-align: center;
+    }
+
+    .note {
+      background: #FFFFFF99;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 45px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+      color: #647067;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">LIFE & COLOUR</div>
+    <nav>
+      <a href="#about">關於</a>
+      <a href="#palette">色彩</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="eyebrow">A JOURNAL OF EVERYDAY BEAUTY</p>
+    <h1>把日常，過成喜歡的模樣。</h1>
+    <p class="intro">
+      穿搭、色彩與生活美學。
+      在忙碌的城市裡，尋找適合自己的風格，
+      也為平凡的日子留下一點柔軟與美好。
+    </p>
+
+    <section id="palette">
+      <h2>我們的色彩語言</h2>
+      <p>從自然與日常汲取靈感，建立屬於自己的視覺風格。</p>
+
+      <div class="palette">
+        <div class="color-item">
+          <div class="swatch" style="background:#F5F0E8"></div>
+          <div class="caption">奶油白<br>#F5F0E8</div>
+        </div>
+        <div class="color-item">
+          <div class="swatch" style="background:#23364D"></div>
+          <div class="caption">海軍藍<br>#23364D</div>
+        </div>
+        <div class="color-item">
+          <div class="swatch" style="background:#9BAF9A"></div>
+          <div class="caption">鼠尾草綠<br>#9BAF9A</div>
+        </div>
+        <div class="color-item">
+          <div class="swatch" style="background:#E8E0D4"></div>
+          <div class="caption">柔和米色<br>#E8E0D4</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="note" id="about">
+      <h2>歡迎來到我的生活美學誌</h2>
+      <p>
+        這裡將記錄都市穿搭、色彩搭配，以及週末的風景與生活。
+        這是我們的第一個網站，未來會慢慢加入文章、照片與更多內容。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 LIFE & COLOUR · A LITTLE BEAUTY IN EVERYDAY LIFE
+  </footer>
+</body>
+</html>
