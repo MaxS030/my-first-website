@@ -118,9 +118,6 @@
   .article-top .button { margin-bottom: 28px; }
   .article-top h1 { max-width: 850px; font-size: clamp(2.2rem, 5vw, 4.4rem); }
   .article-lead { color: var(--muted); max-width: 720px; font-size: 1.1rem; }
-  .issue-poster { margin: 30px 0 42px; }
-  .issue-poster img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 16px 38px var(--shadow); }
-  .issue-poster figcaption { margin-top: 10px; color: var(--muted); font-size: .78rem; letter-spacing: .08em; }
   .article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 42px; align-items: start; }
   .article-content { max-width: 760px; }
   .article-content h2 { margin: 40px 0 12px; font-size: 1.65rem; }
@@ -138,9 +135,23 @@
   .ratio-bar span:nth-child(2) { width: 25%; background: #68645F; }
   .ratio-bar span:nth-child(3) { width: 15%; background: #252525; }
   .ratio-labels { display: grid; gap: 8px; font-size: .82rem; color: var(--muted); }
-  .ratio-poster { margin: 28px 0 38px; }
-  .ratio-poster img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 28px var(--shadow); }
-  .ratio-poster figcaption { margin-top: 10px; color: var(--muted); font-size: .8rem; }
+  .ratio-stories { display: grid; gap: 24px; margin: 28px 0 44px; }
+  .ratio-story { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 12px 28px var(--shadow); }
+  .ratio-story img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface); }
+  .ratio-story-body { padding: 22px; }
+  .ratio-story-kicker { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .ratio-story h3 { font-size: 1.45rem; margin: 7px 0 5px; }
+  .ratio-story p { color: var(--muted); margin-bottom: 14px; }
+  .ratio-story .ratio-bar { display: flex; height: 28px; overflow: hidden; border-radius: 4px; margin: 14px 0 10px; }
+  .ratio-story .ratio-bar span { display: flex; align-items: center; justify-content: center; font-size: .75rem; color: #fff; }
+  .ratio-story .ratio-bar span:last-child { color: #252525; }
+  .ratio-story .swatch-labels { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .78rem; }
+  .ratio-story .swatch-labels strong { color: var(--text); font-weight: 600; }
+  @media (min-width: 760px) {
+    .ratio-story { display: grid; grid-template-columns: 1.08fr 1fr; }
+    .ratio-story img { height: 100%; min-height: 270px; aspect-ratio: auto; }
+    .ratio-story-body { align-self: center; padding: clamp(22px, 3vw, 36px); }
+  }
   .article-aside { position: sticky; top: 100px; }
   .aside-note { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
   .aside-note h3 { margin-bottom: 8px; }
@@ -281,11 +292,7 @@
         <button class="button button-outline" type="button" id="backHome">← 返回每期專欄</button>
         <div class="eyebrow">LIFE &amp; COLOUR · ISSUE 01</div>
         <h1 id="articleTitle">黑、灰、米：<br>沉靜的日常配色</h1>
-        <p class="article-lead">不需要太多顏色，也能搭出有層次的風格。這一期，從五種經典中性色開始，練習讓日常穿搭與生活空間更和諧。</p>
-        <figure class="issue-poster">
-          <img src="issue-01-editorial.png" alt="LIFE & COLOUR 第一期黑、灰、米色彩雜誌編輯版面，包含都會穿搭、生活風景、色票與搭配指南">
-          <figcaption>ISSUE 01 · 黑、灰、米——沉靜的日常配色</figcaption>
-        </figure>
+        <p class="article-lead">不需要太多顏色，也能搭出有層次的風格。這一期以炭黑、石墨灰與燕麥米為固定色票，透過三種比例，看看同一組顏色如何呈現不同的日常氣質。</p>
       </div>
       <div class="article-layout">
         <div class="article-content">
@@ -305,12 +312,49 @@
             <div class="ratio-bar" aria-label="燕麥米60%、石墨灰25%、炭黑15%"><span></span><span></span><span></span></div>
             <div class="ratio-labels"><div>60%　燕麥米 <span class="code">#EAE2D7</span> — 主體與大面積基底</div><div>25%　石墨灰 <span class="code">#68645F</span> — 增加層次</div><div>15%　炭黑 <span class="code">#252525</span> — 收束視覺重心</div></div>
           </div>
-          <figure class="ratio-poster">
-            <img src="issue-01-colour-ratios.png" alt="LIFE & COLOUR 第一期三種中性色配色比例：經典平衡50%炭黑、30%石墨灰、20%燕麥米；柔和對比50%炭黑、25%石墨灰、25%燕麥米；溫柔留白50%燕麥米、35%石墨灰、15%炭黑。">
-            <figcaption>同一組品牌色，透過比例變化，創造不同的視覺氛圍。</figcaption>
-          </figure>
 
-          <h2>03／穿搭靈感：不用想太多的三種組合</h2>
+          <h2>03／三種比例，三種氛圍</h2>
+          <p>同樣的炭黑、石墨灰與燕麥米，只要改變大面積顏色的分配，就能形成不同的視覺重心。以下用三組穿搭故事，直觀比較比例帶來的差異。</p>
+          <div class="ratio-stories">
+            <section class="ratio-story" aria-label="經典平衡配色">
+              <img src="issue-01-look-01.png" alt="都會女性穿著炭黑西裝外套、石墨灰針織上衣與燕麥米長褲，呈現經典平衡配色">
+              <div class="ratio-story-body">
+                <div class="ratio-story-kicker">LOOK 01 · CLASSIC BALANCE</div>
+                <h3>經典平衡</h3>
+                <p>炭黑建立輪廓，石墨灰柔化對比，燕麥米提亮整體。適合通勤、約會與俐落的都會穿搭。</p>
+                <div class="ratio-bar" aria-label="炭黑50%、石墨灰30%、燕麥米20%">
+                  <span style="width:50%;background:#252525">50%</span><span style="width:30%;background:#68645F">30%</span><span style="width:20%;background:#EAE2D7">20%</span>
+                </div>
+                <div class="swatch-labels"><span><strong>炭黑</strong> #252525</span><span><strong>石墨灰</strong> #68645F</span><span><strong>燕麥米</strong> #EAE2D7</span></div>
+              </div>
+            </section>
+            <section class="ratio-story" aria-label="柔和對比配色">
+              <img src="issue-01-look-02.png" alt="女性穿著燕麥米針織上衣與石墨灰長褲坐在湖畔，呈現柔和對比配色">
+              <div class="ratio-story-body">
+                <div class="ratio-story-kicker">LOOK 02 · SOFT CONTRAST</div>
+                <h3>柔和對比</h3>
+                <p>深色仍保有份量，同時讓淺色面積增加，整體更輕盈、自然，適合休閒日、旅行與午後散步。</p>
+                <div class="ratio-bar" aria-label="炭黑50%、石墨灰25%、燕麥米25%">
+                  <span style="width:50%;background:#252525">50%</span><span style="width:25%;background:#68645F">25%</span><span style="width:25%;background:#EAE2D7">25%</span>
+                </div>
+                <div class="swatch-labels"><span><strong>炭黑</strong> #252525</span><span><strong>石墨灰</strong> #68645F</span><span><strong>燕麥米</strong> #EAE2D7</span></div>
+              </div>
+            </section>
+            <section class="ratio-story" aria-label="溫柔留白配色">
+              <img src="issue-01-look-03.png" alt="燕麥米襯衫與長褲、石墨灰針織衫及炭黑包款的服裝平鋪，呈現溫柔留白配色">
+              <div class="ratio-story-body">
+                <div class="ratio-story-kicker">LOOK 03 · GENTLE WHITESPACE</div>
+                <h3>溫柔留白</h3>
+                <p>燕麥米成為視覺主體，石墨灰增加材質層次，少量炭黑收束細節，適合淺色穿搭與安靜的生活空間。</p>
+                <div class="ratio-bar" aria-label="燕麥米50%、石墨灰35%、炭黑15%">
+                  <span style="width:50%;background:#EAE2D7;color:#252525">50%</span><span style="width:35%;background:#68645F">35%</span><span style="width:15%;background:#252525">15%</span>
+                </div>
+                <div class="swatch-labels"><span><strong>燕麥米</strong> #EAE2D7</span><span><strong>石墨灰</strong> #68645F</span><span><strong>炭黑</strong> #252525</span></div>
+              </div>
+            </section>
+          </div>
+
+          <h2>04／穿搭靈感：不用想太多的三種組合</h2>
           <p><strong>燕麥米＋炭黑：</strong>米色上衣搭配黑色長褲或長裙，簡潔俐落；再用棕色皮帶或包包加一點溫度。</p>
           <p><strong>石墨灰＋柔白：</strong>灰色針織搭白色襯衫，利用領口、袖口的層次，讓整體看起來更有細節。</p>
           <p><strong>炭黑＋煙燻棕：</strong>深色外套搭配棕色鞋履或包款，低調但不單調。不同材質也能創造變化，例如羊毛、棉布與皮革。</p>
@@ -327,7 +371,7 @@
           <div class="aside-note">
             <div class="eyebrow">IN THIS ISSUE</div>
             <h3>本期閱讀清單</h3>
-            <ul><li>認識五種中性色</li><li>60／25／15 配色比例</li><li>三種日常穿搭靈感</li><li>把色彩帶進生活</li></ul>
+            <ul><li>認識五種中性色</li><li>三種色彩比例</li><li>三組穿搭與生活主圖</li><li>把色彩帶進生活</li></ul>
           </div>
         </aside>
       </div>
