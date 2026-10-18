@@ -1,155 +1,414 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的生活美學誌</title>
-  <style>
-    body {
-      margin: 0;
-      background: #F5F0E8;
-      color: #23364D;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      padding: 28px 8%;
-      border-bottom: 1px solid #D8D0C4;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    nav a {
-      color: #23364D;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-
-    main {
-      max-width: 960px;
-      margin: 70px auto;
-      padding: 0 24px;
-    }
-
-    .eyebrow {
-      color: #78866B;
-      letter-spacing: 3px;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.2;
-      margin: 20px 0;
-    }
-
-    .intro {
-      max-width: 620px;
-      line-height: 1.9;
-      font-size: 17px;
-    }
-
-    .palette {
-      display: flex;
-      gap: 12px;
-      margin: 35px 0;
-      flex-wrap: wrap;
-    }
-
-    .swatch {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 1px solid #D8D0C4;
-    }
-
-    .caption {
-      font-size: 12px;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    .color-item {
-      text-align: center;
-    }
-
-    .note {
-      background: #FFFFFF99;
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 45px;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      font-size: 13px;
-      color: #647067;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#EAE2D7">
+<meta name="description" content="LIFE & COLOUR 生活美學色彩誌：從顏色、穿搭到日常靈感，收藏值得品味的美。">
+<title>LIFE & COLOUR — 生活美學色彩誌</title>
+<style>
+  :root {
+    --bg: #EAE2D7;
+    --surface: #F8F5F0;
+    --surface-strong: #FFFFFF;
+    --text: #252525;
+    --muted: #68645F;
+    --accent: #A1846C;
+    --line: #D5C9BA;
+    --shadow: rgba(37, 37, 37, .12);
+    --header-bg: rgba(234, 226, 215, .9);
+  }
+  html[data-theme="dark"] {
+    --bg: #252525;
+    --surface: #302F2D;
+    --surface-strong: #393633;
+    --text: #F2EDE6;
+    --muted: #C3B9AE;
+    --accent: #C1A187;
+    --line: #514940;
+    --shadow: rgba(0, 0, 0, .32);
+    --header-bg: rgba(37, 37, 37, .9);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    line-height: 1.75;
+    transition: background-color .25s ease, color .25s ease;
+  }
+  a { color: inherit; }
+  button { font: inherit; }
+  .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .brand { text-decoration: none; font-family: Georgia, serif; font-size: 1.2rem; letter-spacing: .14em; font-weight: 700; }
+  .brand small { display: block; font: 500 .65rem/1.4 "Noto Sans TC", sans-serif; letter-spacing: .2em; color: var(--muted); margin-top: 3px; }
+  .nav-right { display: flex; align-items: center; gap: 22px; }
+  .nav-link { font-size: .88rem; text-decoration: none; color: var(--muted); }
+  .nav-link:hover { color: var(--text); }
+  .theme-toggle {
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    color: var(--text); padding: 9px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .12s ease, background-color .2s ease;
+  }
+  .theme-toggle:active { transform: translateY(2px) scale(.98); }
+  .hero { padding: clamp(58px, 10vw, 120px) 0 78px; border-bottom: 1px solid var(--line); }
+  .eyebrow { color: var(--accent); text-transform: uppercase; font-size: .72rem; letter-spacing: .22em; font-weight: 700; }
+  h1, h2, h3, p { margin-top: 0; }
+  h1 { font-size: clamp(2.35rem, 6vw, 5rem); line-height: 1.2; letter-spacing: -.045em; max-width: 780px; margin: 18px 0; font-weight: 650; }
+  .hero p { max-width: 620px; color: var(--muted); font-size: 1.04rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }
+  .button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 48px; padding: 12px 22px; border-radius: 6px;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    font-weight: 600; font-size: .92rem;
+    transition: transform .12s ease, box-shadow .12s ease, background-color .2s ease, color .2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .button-primary {
+    background: var(--text); color: var(--bg);
+    box-shadow: 0 4px 0 var(--accent), 0 8px 18px var(--shadow);
+  }
+  .button-primary:hover { transform: translateY(-1px); box-shadow: 0 5px 0 var(--accent), 0 10px 22px var(--shadow); }
+  .button-primary:active, .button-primary.is-pressed {
+    transform: translateY(3px) scale(.985);
+    box-shadow: 0 1px 0 var(--accent), 0 3px 8px var(--shadow);
+  }
+  .button-outline { border-color: var(--line); color: var(--text); background: transparent; }
+  .button-outline:hover { background: var(--surface); }
+  .button-outline:active { transform: translateY(2px) scale(.99); }
+  .section { padding: 74px 0; }
+  .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+  .section-heading h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin: 8px 0 0; letter-spacing: -.03em; }
+  .section-heading p { color: var(--muted); max-width: 400px; margin: 0; font-size: .9rem; }
+  .issue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .issue-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 12px 30px var(--shadow); }
+  .issue-art { min-height: 220px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
+  .issue-art.dark-art { background: #252525; color: #F2EDE6; }
+  .issue-art.brown-art { background: #A1846C; color: #fffaf3; }
+  .issue-number { font: 700 .72rem Georgia, serif; letter-spacing: .18em; }
+  .issue-art h3 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; margin: 28px 0 8px; letter-spacing: -.04em; }
+  .issue-art p { margin: 0; opacity: .78; font-size: .9rem; }
+  .mini-swatches { display: flex; gap: 7px; margin-top: 18px; }
+  .mini-swatches span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28); }
+  .issue-body { padding: 24px; }
+  .issue-body p { color: var(--muted); font-size: .92rem; }
+  .issue-meta { font-size: .72rem; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+  .palette-strip { display: grid; grid-template-columns: repeat(5, 1fr); overflow: hidden; border-radius: 8px; border: 1px solid var(--line); }
+  .palette-cell { min-height: 112px; padding: 12px 10px; display: flex; flex-direction: column; justify-content: end; font-size: .72rem; overflow-wrap: anywhere; }
+  .palette-cell strong { font-size: .75rem; }
+  .about-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 36px; padding: 34px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  .about-panel h2 { font-size: 1.8rem; margin: 8px 0 0; }
+  .about-panel p { color: var(--muted); margin: 0; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .8rem; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .article-view { display: none; min-height: 70vh; padding: 52px 0 90px; }
+  .article-view.is-visible { display: block; animation: fade-in .28s ease both; }
+  .home-view.is-hidden { display: none; }
+  .article-top { margin-bottom: 34px; }
+  .article-top .button { margin-bottom: 28px; }
+  .article-top h1 { max-width: 850px; font-size: clamp(2.2rem, 5vw, 4.4rem); }
+  .article-lead { color: var(--muted); max-width: 720px; font-size: 1.1rem; }
+  .article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 42px; align-items: start; }
+  .article-content { max-width: 760px; }
+  .article-content h2 { margin: 40px 0 12px; font-size: 1.65rem; }
+  .article-content p { color: var(--muted); }
+  .article-content .lead-paragraph { color: var(--text); font-size: 1.05rem; }
+  .color-row { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); }
+  .color-chip { width: 110px; height: 86px; border-radius: 7px; border: 1px solid var(--line); }
+  .color-row h3 { margin: 0 0 4px; font-size: 1rem; }
+  .color-row p { margin: 0; font-size: .86rem; }
+  .code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .03em; color: var(--text) !important; }
+  .ratio-card { padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+  .ratio-card h3 { margin-bottom: 16px; }
+  .ratio-bar { display: flex; height: 20px; border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+  .ratio-bar span:nth-child(1) { width: 60%; background: #EAE2D7; }
+  .ratio-bar span:nth-child(2) { width: 25%; background: #68645F; }
+  .ratio-bar span:nth-child(3) { width: 15%; background: #252525; }
+  .ratio-labels { display: grid; gap: 8px; font-size: .82rem; color: var(--muted); }
+  .article-aside { position: sticky; top: 100px; }
+  .aside-note { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+  .aside-note h3 { margin-bottom: 8px; }
+  .aside-note p, .aside-note li { font-size: .85rem; color: var(--muted); }
+  .aside-note ul { padding-left: 18px; margin-bottom: 0; }
+  .article-end { margin-top: 42px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .article-end .button { margin-top: 8px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 1120px); }
+    .nav { min-height: 68px; }
+    .nav-right { gap: 12px; }
+    .nav-link { display: none; }
+    .theme-toggle { padding: 8px 11px; font-size: .82rem; }
+    .hero { padding: 62px 0 58px; }
+    .section { padding: 54px 0; }
+    .section-heading { display: block; }
+    .section-heading p { margin-top: 12px; }
+    .issue-grid { grid-template-columns: 1fr; }
+    .issue-art { min-height: 200px; }
+    .palette-cell { min-height: 88px; padding: 8px 5px; font-size: .62rem; }
+    .palette-cell strong { font-size: .65rem; }
+    .about-panel { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+    .article-layout { grid-template-columns: 1fr; }
+    .article-aside { position: static; }
+    .color-row { grid-template-columns: 84px 1fr; gap: 13px; }
+    .color-chip { width: 84px; height: 72px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">LIFE & COLOUR</div>
-    <nav>
-      <a href="#about">關於</a>
-      <a href="#palette">色彩</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" data-home-link>LIFE &amp; COLOUR<small>生活美學 · 色彩誌</small></a>
+    <div class="nav-right">
+      <a class="nav-link" href="#issues" data-home-link>每期專欄</a>
+      <a class="nav-link" href="#about" data-home-link>關於我們</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切換日間與夜間模式">
+        <span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">夜間模式</span>
+      </button>
+    </div>
+  </div>
+</header>
 
-  <main>
-    <p class="eyebrow">A JOURNAL OF EVERYDAY BEAUTY</p>
-    <h1>把日常，過成喜歡的模樣。</h1>
-    <p class="intro">
-      穿搭、色彩與生活美學。
-      在忙碌的城市裡，尋找適合自己的風格，
-      也為平凡的日子留下一點柔軟與美好。
-    </p>
-
-    <section id="palette">
-      <h2>我們的色彩語言</h2>
-      <p>從自然與日常汲取靈感，建立屬於自己的視覺風格。</p>
-
-      <div class="palette">
-        <div class="color-item">
-          <div class="swatch" style="background:#F5F0E8"></div>
-          <div class="caption">奶油白<br>#F5F0E8</div>
-        </div>
-        <div class="color-item">
-          <div class="swatch" style="background:#23364D"></div>
-          <div class="caption">海軍藍<br>#23364D</div>
-        </div>
-        <div class="color-item">
-          <div class="swatch" style="background:#9BAF9A"></div>
-          <div class="caption">鼠尾草綠<br>#9BAF9A</div>
-        </div>
-        <div class="color-item">
-          <div class="swatch" style="background:#E8E0D4"></div>
-          <div class="caption">柔和米色<br>#E8E0D4</div>
+<main>
+  <div id="homeView" class="home-view">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">A JOURNAL OF EVERYDAY AESTHETICS</div>
+        <h1>把日常，過成<br>喜歡的模樣。</h1>
+        <p>從顏色、穿搭到生活靈感，尋找日常裡值得收藏的美。讓每一種色彩，都成為表達自己的方式。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#issues">探索每期色彩誌 <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#about">認識 LIFE &amp; COLOUR</a>
         </div>
       </div>
     </section>
 
-    <section class="note" id="about">
-      <h2>歡迎來到我的生活美學誌</h2>
-      <p>
-        這裡將記錄都市穿搭、色彩搭配，以及週末的風景與生活。
-        這是我們的第一個網站，未來會慢慢加入文章、照片與更多內容。
-      </p>
+    <section class="section" id="issues">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">THE COLOUR JOURNAL</div><h2>每期色彩專欄</h2></div>
+          <p>以一組色彩為起點，慢慢延伸到穿搭、空間與生活風格。</p>
+        </div>
+        <div class="issue-grid">
+          <article class="issue-card">
+            <div class="issue-art dark-art">
+              <div class="issue-number">ISSUE 01 · COLOUR STORY</div>
+              <div>
+                <h3>黑・灰・米</h3>
+                <p>沉靜的日常配色</p>
+                <div class="mini-swatches" aria-label="本期色彩">
+                  <span style="background:#252525"></span><span style="background:#68645F"></span><span style="background:#EAE2D7"></span><span style="background:#A1846C"></span>
+                </div>
+              </div>
+            </div>
+            <div class="issue-body">
+              <div class="issue-meta">第一期　／　色彩入門</div>
+              <p>從炭黑、石墨灰到燕麥米，學會用低飽和色彩打造耐看、不費力的日常風格。</p>
+              <button class="button button-primary open-article" type="button" data-article="issue01">閱讀第一期 <span aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+          <article class="issue-card">
+            <div class="issue-art brown-art">
+              <div class="issue-number">ISSUE 02 · COMING NEXT</div>
+              <div>
+                <h3>棕・白・奶油</h3>
+                <p>溫柔的大地色系</p>
+                <div class="mini-swatches" aria-label="下一期預告色彩">
+                  <span style="background:#765943"></span><span style="background:#F7F0E6"></span><span style="background:#D9C4A7"></span><span style="background:#A1846C"></span>
+                </div>
+              </div>
+            </div>
+            <div class="issue-body">
+              <div class="issue-meta">第二期　／　即將推出</div>
+              <p>以大地色為靈感，探索柔和層次、材質搭配與更有溫度的生活畫面。</p>
+              <button class="button button-outline" type="button" id="issue02Btn">收藏這個主題 <span aria-hidden="true">＋</span></button>
+              <p id="issue02Message" class="sr-only" aria-live="polite"></p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    © 2026 LIFE & COLOUR · A LITTLE BEAUTY IN EVERYDAY LIFE
-  </footer>
+    <section class="section" id="palette">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">OUR SIGNATURE PALETTE</div><h2>品牌色票</h2></div>
+          <p>一組安靜、耐看的中性色，構成 LIFE &amp; COLOUR 的視覺基調。</p>
+        </div>
+        <div class="palette-strip">
+          <div class="palette-cell" style="background:#252525;color:#fff"><strong>炭黑</strong>#252525</div>
+          <div class="palette-cell" style="background:#68645F;color:#fff"><strong>石墨灰</strong>#68645F</div>
+          <div class="palette-cell" style="background:#fff;color:#252525"><strong>柔白</strong>#FFFFFF</div>
+          <div class="palette-cell" style="background:#A1846C;color:#fff"><strong>煙燻棕</strong>#A1846C</div>
+          <div class="palette-cell" style="background:#EAE2D7;color:#252525"><strong>燕麥米</strong>#EAE2D7</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="about-panel">
+          <div><div class="eyebrow">ABOUT THE JOURNAL</div><h2>美，不必很複雜。</h2></div>
+          <p>LIFE &amp; COLOUR 是一本持續更新的線上生活美學雜誌。我們從一個顏色、一件衣服、一個生活片刻出發，分享實用的色彩知識與溫柔的日常靈感。希望這裡能成為你偶爾停下腳步、重新發現生活的地方。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <article id="issue01" class="article-view" aria-labelledby="articleTitle">
+    <div class="wrap">
+      <div class="article-top">
+        <button class="button button-outline" type="button" id="backHome">← 返回每期專欄</button>
+        <div class="eyebrow">LIFE &amp; COLOUR · ISSUE 01</div>
+        <h1 id="articleTitle">黑、灰、米：<br>沉靜的日常配色</h1>
+        <p class="article-lead">不需要太多顏色，也能搭出有層次的風格。這一期，從五種經典中性色開始，練習讓日常穿搭與生活空間更和諧。</p>
+      </div>
+      <div class="article-layout">
+        <div class="article-content">
+          <p class="lead-paragraph">有些配色不會在第一眼大聲吸引你，卻會讓人越看越舒服。黑、灰、白、棕與米色就是這樣的組合：它們不搶戲，卻能讓輪廓、材質與細節被好好看見。</p>
+          <h2>01／認識本期色票</h2>
+          <p>色碼（HEX）是網頁與數位設計常用的顏色表示方式。你可以複製下列色碼，作為製作穿搭拼貼、社群圖片或設計作品的起點。</p>
+          <div class="color-row"><div class="color-chip" style="background:#252525"></div><div><h3>炭黑 Charcoal</h3><p class="code">#252525</p><p>沉穩、有份量，適合外套、鞋履、標題與需要視覺重心的位置。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#68645F"></div><div><h3>石墨灰 Graphite</h3><p class="code">#68645F</p><p>比純黑柔和，適合針織、長褲、包款，也很適合用在輔助文字上。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#FFFFFF"></div><div><h3>柔白 Soft White</h3><p class="code">#FFFFFF</p><p>乾淨明亮，能平衡深色的重量，讓整體看起來更清爽。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#A1846C"></div><div><h3>煙燻棕 Smoky Brown</h3><p class="code">#A1846C</p><p>帶一點灰調的棕色，適合皮革配件、腰帶、包包與溫暖的小細節。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#EAE2D7"></div><div><h3>燕麥米 Oat Beige</h3><p class="code">#EAE2D7</p><p>溫柔又不過分甜膩，可用於襯衫、針織、外套，也很適合作為大面積背景。</p></div></div>
+
+          <h2>02／簡單的配色比例</h2>
+          <p>初學時可以先試試「大面積基底＋中間色＋少量深色」的方式。比例不是硬性規則，而是幫助畫面保持平衡的起點。</p>
+          <div class="ratio-card">
+            <h3>60／25／15 配色法</h3>
+            <div class="ratio-bar" aria-label="燕麥米60%、石墨灰25%、炭黑15%"><span></span><span></span><span></span></div>
+            <div class="ratio-labels"><div>60%　燕麥米 <span class="code">#EAE2D7</span> — 主體與大面積基底</div><div>25%　石墨灰 <span class="code">#68645F</span> — 增加層次</div><div>15%　炭黑 <span class="code">#252525</span> — 收束視覺重心</div></div>
+          </div>
+
+          <h2>03／穿搭靈感：不用想太多的三種組合</h2>
+          <p><strong>燕麥米＋炭黑：</strong>米色上衣搭配黑色長褲或長裙，簡潔俐落；再用棕色皮帶或包包加一點溫度。</p>
+          <p><strong>石墨灰＋柔白：</strong>灰色針織搭白色襯衫，利用領口、袖口的層次，讓整體看起來更有細節。</p>
+          <p><strong>炭黑＋煙燻棕：</strong>深色外套搭配棕色鞋履或包款，低調但不單調。不同材質也能創造變化，例如羊毛、棉布與皮革。</p>
+
+          <h2>04／把色彩帶進生活</h2>
+          <p>這組配色也很適合房間、書桌或個人網站。先用燕麥米建立明亮的底，再用炭黑做標題與線條，棕色只出現在少數重點上。當畫面留白足夠，顏色就更容易被看見。</p>
+          <div class="article-end">
+            <div class="eyebrow">END OF ISSUE 01</div>
+            <p>這是 LIFE &amp; COLOUR 的第一期。收藏這組色票，下一次選衣服、整理房間或製作設計時，就從它開始吧。</p>
+            <button class="button button-primary" type="button" id="backToIssues">回到每期專欄 ↗</button>
+          </div>
+        </div>
+        <aside class="article-aside">
+          <div class="aside-note">
+            <div class="eyebrow">IN THIS ISSUE</div>
+            <h3>本期閱讀清單</h3>
+            <ul><li>認識五種中性色</li><li>60／25／15 配色比例</li><li>三種日常穿搭靈感</li><li>把色彩帶進生活</li></ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap footer-inner"><span>LIFE &amp; COLOUR — 生活美學 · 色彩誌</span><span>Find beauty in the everyday.</span></div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    const isDark = theme === 'dark';
+    themeIcon.textContent = isDark ? '☀' : '☾';
+    themeLabel.textContent = isDark ? '日間模式' : '夜間模式';
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', isDark ? '#252525' : '#EAE2D7');
+  }
+
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('life-colour-theme'); } catch (e) {}
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+  themeToggle.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('life-colour-theme', next); } catch (e) {}
+  });
+
+  const homeView = document.getElementById('homeView');
+  const articleView = document.getElementById('issue01');
+
+  function showArticle() {
+    homeView.classList.add('is-hidden');
+    articleView.classList.add('is-visible');
+    history.pushState({ page: 'issue01' }, '', '#issue01');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
+  }
+  function showHome(scrollToIssues = false, updateHistory = true) {
+    articleView.classList.remove('is-visible');
+    homeView.classList.remove('is-hidden');
+    if (updateHistory) history.pushState({ page: 'home' }, '', scrollToIssues ? '#issues' : '#home');
+    document.title = 'LIFE & COLOUR — 生活美學色彩誌';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (scrollToIssues) setTimeout(() => document.getElementById('issues').scrollIntoView({ behavior: 'smooth' }), 80);
+  }
+  document.querySelectorAll('.open-article').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.add('is-pressed');
+      window.setTimeout(() => button.classList.remove('is-pressed'), 180);
+      showArticle();
+    });
+  });
+  document.getElementById('backHome').addEventListener('click', () => showHome(false));
+  document.getElementById('backToIssues').addEventListener('click', () => showHome(true));
+  document.querySelectorAll('[data-home-link]').forEach(link => link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (articleView.classList.contains('is-visible')) {
+      event.preventDefault();
+      showHome(false);
+      if (href === '#issues' || href === '#about') setTimeout(() => document.querySelector(href).scrollIntoView({behavior:'smooth'}), 80);
+    }
+  }));
+  window.addEventListener('popstate', () => {
+    if (location.hash === '#issue01') {
+      homeView.classList.add('is-hidden');
+      articleView.classList.add('is-visible');
+      document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
+    } else {
+      articleView.classList.remove('is-visible');
+      homeView.classList.remove('is-hidden');
+      document.title = 'LIFE & COLOUR — 生活美學色彩誌';
+    }
+  });
+  document.getElementById('issue02Btn').addEventListener('click', () => {
+    const message = document.getElementById('issue02Message');
+    message.textContent = '已記下你的興趣！第二期主題預告：棕、白與奶油色。';
+    message.classList.remove('sr-only');
+    const btn = document.getElementById('issue02Btn');
+    btn.classList.add('is-pressed');
+    setTimeout(() => btn.classList.remove('is-pressed'), 180);
+  });
+  if (location.hash === '#issue01') {
+    homeView.classList.add('is-hidden');
+    articleView.classList.add('is-visible');
+    document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
+  }
+</script>
 </body>
 </html>
