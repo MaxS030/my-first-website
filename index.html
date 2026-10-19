@@ -143,8 +143,9 @@
   .ratio-story h3 { font-size: 1.45rem; margin: 7px 0 5px; }
   .ratio-story p { color: var(--muted); margin-bottom: 14px; }
   .ratio-story .ratio-bar { display: flex; height: 28px; overflow: hidden; border-radius: 4px; margin: 14px 0 10px; }
-  .ratio-story .ratio-bar span { display: flex; align-items: center; justify-content: center; font-size: .75rem; color: #fff; }
+  .ratio-story .ratio-bar span { display: flex; flex: 0 0 auto; min-width: 0; align-items: center; justify-content: center; font-size: clamp(.62rem, 1vw, .75rem); line-height: 1; white-space: nowrap; color: #fff; }
   .ratio-story .ratio-bar span:last-child { color: #252525; }
+  .ratio-story .ratio-bar span[style*="width:15%"] { font-size: .68rem; letter-spacing: -.04em; }
   .ratio-story .swatch-labels { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .78rem; }
   .ratio-story .swatch-labels strong { color: var(--text); font-weight: 600; }
   @media (min-width: 760px) {
@@ -296,7 +297,7 @@
       </div>
       <div class="article-layout">
         <div class="article-content">
-          <p class="lead-paragraph">有些配色不會在第一眼大聲吸引你，卻會讓人越看越舒服。黑、灰、白、棕與米色就是這樣的組合：它們不搶戲，卻能讓輪廓、材質與細節被好好看見。</p>
+          <p class="lead-paragraph">有些配色不會在第一眼大聲吸引你，卻會讓人越看越舒服。炭黑、石墨灰與燕麥米就是這樣的組合：它們不搶戲，卻能讓輪廓、材質與細節被好好看見。</p>
           <h2>01／認識本期色票</h2>
           <p>色碼（HEX）是網頁與數位設計常用的顏色表示方式。你可以複製下列色碼，作為製作穿搭拼貼、社群圖片或設計作品的起點。</p>
           <div class="color-row"><div class="color-chip" style="background:#252525"></div><div><h3>炭黑 Charcoal</h3><p class="code">#252525</p><p>沉穩、有份量，適合外套、鞋履、標題與需要視覺重心的位置。</p></div></div>
@@ -329,7 +330,7 @@
               </div>
             </section>
             <section class="ratio-story" aria-label="柔和對比配色">
-              <img src="issue-01-look-02.png" alt="女性穿著燕麥米針織上衣與石墨灰長褲坐在湖畔，呈現柔和對比配色">
+              <img src="issue-01-look-02.png" alt="女性穿著炭黑外套與深色長褲、石墨灰針織及燕麥米圍巾，坐在湖畔呈現柔和對比配色">
               <div class="ratio-story-body">
                 <div class="ratio-story-kicker">LOOK 02 · SOFT CONTRAST</div>
                 <h3>柔和對比</h3>
@@ -359,7 +360,7 @@
           <p><strong>石墨灰＋柔白：</strong>灰色針織搭白色襯衫，利用領口、袖口的層次，讓整體看起來更有細節。</p>
           <p><strong>炭黑＋煙燻棕：</strong>深色外套搭配棕色鞋履或包款，低調但不單調。不同材質也能創造變化，例如羊毛、棉布與皮革。</p>
 
-          <h2>04／把色彩帶進生活</h2>
+          <h2>05／把色彩帶進生活</h2>
           <p>這組配色也很適合房間、書桌或個人網站。先用燕麥米建立明亮的底，再用炭黑做標題與線條，棕色只出現在少數重點上。當畫面留白足夠，顏色就更容易被看見。</p>
           <div class="article-end">
             <div class="eyebrow">END OF ISSUE 01</div>
