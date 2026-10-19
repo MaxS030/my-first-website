@@ -95,6 +95,11 @@
   .issue-art { min-height: 220px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
   .issue-art.dark-art { background: #252525; color: #F2EDE6; }
   .issue-art.brown-art { background: #A1846C; color: #fffaf3; }
+  .issue-art.navy-art { background: #193247; color: #F1EEE7; }
+  .article-hero-image { display:block; width:100%; border-radius:8px; border:1px solid var(--line); margin:24px 0 30px; }
+  .issue-banner { border-radius:8px; padding:28px; margin:22px 0; background:var(--surface); border:1px solid var(--line); }
+  .issue-banner .eyebrow { margin-bottom:8px; }
+  .ratio-bar .ratio-segment { display:flex; align-items:center; justify-content:center; min-width:0; font-size:.72rem; white-space:nowrap; }
   .issue-number { font: 700 .72rem Georgia, serif; letter-spacing: .18em; }
   .issue-art h3 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; margin: 28px 0 8px; letter-spacing: -.04em; }
   .issue-art p { margin: 0; opacity: .78; font-size: .9rem; }
@@ -135,24 +140,6 @@
   .ratio-bar span:nth-child(2) { width: 25%; background: #68645F; }
   .ratio-bar span:nth-child(3) { width: 15%; background: #252525; }
   .ratio-labels { display: grid; gap: 8px; font-size: .82rem; color: var(--muted); }
-  .ratio-stories { display: grid; gap: 24px; margin: 28px 0 44px; }
-  .ratio-story { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 12px 28px var(--shadow); }
-  .ratio-story img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface); }
-  .ratio-story-body { padding: 22px; }
-  .ratio-story-kicker { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-  .ratio-story h3 { font-size: 1.45rem; margin: 7px 0 5px; }
-  .ratio-story p { color: var(--muted); margin-bottom: 14px; }
-  .ratio-story .ratio-bar { display: flex; height: 28px; overflow: hidden; border-radius: 4px; margin: 14px 0 10px; }
-  .ratio-story .ratio-bar span { display: flex; flex: 0 0 auto; min-width: 0; align-items: center; justify-content: center; font-size: clamp(.62rem, 1vw, .75rem); line-height: 1; white-space: nowrap; color: #fff; }
-  .ratio-story .ratio-bar span:last-child { color: #252525; }
-  .ratio-story .ratio-bar span[style*="width:15%"] { font-size: .68rem; letter-spacing: -.04em; }
-  .ratio-story .swatch-labels { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .78rem; }
-  .ratio-story .swatch-labels strong { color: var(--text); font-weight: 600; }
-  @media (min-width: 760px) {
-    .ratio-story { display: grid; grid-template-columns: 1.08fr 1fr; }
-    .ratio-story img { height: 100%; min-height: 270px; aspect-ratio: auto; }
-    .ratio-story-body { align-self: center; padding: clamp(22px, 3vw, 36px); }
-  }
   .article-aside { position: sticky; top: 100px; }
   .aside-note { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
   .aside-note h3 { margin-bottom: 8px; }
@@ -241,20 +228,37 @@
           </article>
           <article class="issue-card">
             <div class="issue-art brown-art">
-              <div class="issue-number">ISSUE 02 · COMING NEXT</div>
+              <div class="issue-number">ISSUE 02 · COLOUR STORY</div>
               <div>
                 <h3>棕・白・奶油</h3>
                 <p>溫柔的大地色系</p>
-                <div class="mini-swatches" aria-label="下一期預告色彩">
-                  <span style="background:#765943"></span><span style="background:#F7F0E6"></span><span style="background:#D9C4A7"></span><span style="background:#A1846C"></span>
+                <div class="mini-swatches" aria-label="第二期色彩">
+                  <span style="background:#80624D"></span><span style="background:#F7F2E9;border-color:#d8cfc2"></span><span style="background:#D9C5A5"></span><span style="background:#A1846C"></span>
                 </div>
               </div>
             </div>
             <div class="issue-body">
-              <div class="issue-meta">第二期　／　即將推出</div>
+              <div class="issue-meta">第二期　／　本週主題</div>
               <p>以大地色為靈感，探索柔和層次、材質搭配與更有溫度的生活畫面。</p>
-              <button class="button button-outline" type="button" id="issue02Btn">收藏這個主題 <span aria-hidden="true">＋</span></button>
-              <p id="issue02Message" class="sr-only" aria-live="polite"></p>
+              <button class="button button-primary open-article" type="button" data-article="issue02">閱讀第二期 <span aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+          <article class="issue-card">
+            <div class="issue-art navy-art">
+              <div class="issue-number">ISSUE 03 · COMING NEXT</div>
+              <div>
+                <h3>城市深藍・霧白・自然綠</h3>
+                <p>在俐落與自然之間</p>
+                <div class="mini-swatches" aria-label="第三期預告色彩">
+                  <span style="background:#193247"></span><span style="background:#F1EEE7;border-color:#c8c0b5"></span><span style="background:#7B8464"></span><span style="background:#68645F"></span>
+                </div>
+              </div>
+            </div>
+            <div class="issue-body">
+              <div class="issue-meta">第三期　／　即將推出</div>
+              <p>從城市深藍、霧感白與自然鼠尾草綠出發，探索都會穿搭與自然生活的平衡。</p>
+              <button class="button button-outline" type="button" id="issue03Btn">收藏這個主題 <span aria-hidden="true">＋</span></button>
+              <p id="issue03Message" class="sr-only" aria-live="polite"></p>
             </div>
           </article>
         </div>
@@ -293,11 +297,11 @@
         <button class="button button-outline" type="button" id="backHome">← 返回每期專欄</button>
         <div class="eyebrow">LIFE &amp; COLOUR · ISSUE 01</div>
         <h1 id="articleTitle">黑、灰、米：<br>沉靜的日常配色</h1>
-        <p class="article-lead">不需要太多顏色，也能搭出有層次的風格。這一期以炭黑、石墨灰與燕麥米為固定色票，透過三種比例，看看同一組顏色如何呈現不同的日常氣質。</p>
+        <p class="article-lead">不需要太多顏色，也能搭出有層次的風格。這一期，從五種經典中性色開始，練習讓日常穿搭與生活空間更和諧。</p>
       </div>
       <div class="article-layout">
         <div class="article-content">
-          <p class="lead-paragraph">有些配色不會在第一眼大聲吸引你，卻會讓人越看越舒服。炭黑、石墨灰與燕麥米就是這樣的組合：它們不搶戲，卻能讓輪廓、材質與細節被好好看見。</p>
+          <p class="lead-paragraph">有些配色不會在第一眼大聲吸引你，卻會讓人越看越舒服。黑、灰、白、棕與米色就是這樣的組合：它們不搶戲，卻能讓輪廓、材質與細節被好好看見。</p>
           <h2>01／認識本期色票</h2>
           <p>色碼（HEX）是網頁與數位設計常用的顏色表示方式。你可以複製下列色碼，作為製作穿搭拼貼、社群圖片或設計作品的起點。</p>
           <div class="color-row"><div class="color-chip" style="background:#252525"></div><div><h3>炭黑 Charcoal</h3><p class="code">#252525</p><p>沉穩、有份量，適合外套、鞋履、標題與需要視覺重心的位置。</p></div></div>
@@ -314,53 +318,12 @@
             <div class="ratio-labels"><div>60%　燕麥米 <span class="code">#EAE2D7</span> — 主體與大面積基底</div><div>25%　石墨灰 <span class="code">#68645F</span> — 增加層次</div><div>15%　炭黑 <span class="code">#252525</span> — 收束視覺重心</div></div>
           </div>
 
-          <h2>03／三種比例，三種氛圍</h2>
-          <p>同樣的炭黑、石墨灰與燕麥米，只要改變大面積顏色的分配，就能形成不同的視覺重心。以下用三組穿搭故事，直觀比較比例帶來的差異。</p>
-          <div class="ratio-stories">
-            <section class="ratio-story" aria-label="經典平衡配色">
-              <img src="issue-01-look-01.png" alt="都會女性穿著炭黑西裝外套、石墨灰針織上衣與燕麥米長褲，呈現經典平衡配色">
-              <div class="ratio-story-body">
-                <div class="ratio-story-kicker">LOOK 01 · CLASSIC BALANCE</div>
-                <h3>經典平衡</h3>
-                <p>炭黑建立輪廓，石墨灰柔化對比，燕麥米提亮整體。適合通勤、約會與俐落的都會穿搭。</p>
-                <div class="ratio-bar" aria-label="炭黑50%、石墨灰30%、燕麥米20%">
-                  <span style="width:50%;background:#252525">50%</span><span style="width:30%;background:#68645F">30%</span><span style="width:20%;background:#EAE2D7">20%</span>
-                </div>
-                <div class="swatch-labels"><span><strong>炭黑</strong> #252525</span><span><strong>石墨灰</strong> #68645F</span><span><strong>燕麥米</strong> #EAE2D7</span></div>
-              </div>
-            </section>
-            <section class="ratio-story" aria-label="柔和對比配色">
-              <img src="issue-01-look-02.png" alt="女性穿著炭黑外套與深色長褲、石墨灰針織及燕麥米圍巾，坐在湖畔呈現柔和對比配色">
-              <div class="ratio-story-body">
-                <div class="ratio-story-kicker">LOOK 02 · SOFT CONTRAST</div>
-                <h3>柔和對比</h3>
-                <p>深色仍保有份量，同時讓淺色面積增加，整體更輕盈、自然，適合休閒日、旅行與午後散步。</p>
-                <div class="ratio-bar" aria-label="炭黑50%、石墨灰25%、燕麥米25%">
-                  <span style="width:50%;background:#252525">50%</span><span style="width:25%;background:#68645F">25%</span><span style="width:25%;background:#EAE2D7">25%</span>
-                </div>
-                <div class="swatch-labels"><span><strong>炭黑</strong> #252525</span><span><strong>石墨灰</strong> #68645F</span><span><strong>燕麥米</strong> #EAE2D7</span></div>
-              </div>
-            </section>
-            <section class="ratio-story" aria-label="溫柔留白配色">
-              <img src="issue-01-look-03.png" alt="燕麥米襯衫與長褲、石墨灰針織衫及炭黑包款的服裝平鋪，呈現溫柔留白配色">
-              <div class="ratio-story-body">
-                <div class="ratio-story-kicker">LOOK 03 · GENTLE WHITESPACE</div>
-                <h3>溫柔留白</h3>
-                <p>燕麥米成為視覺主體，石墨灰增加材質層次，少量炭黑收束細節，適合淺色穿搭與安靜的生活空間。</p>
-                <div class="ratio-bar" aria-label="燕麥米50%、石墨灰35%、炭黑15%">
-                  <span style="width:50%;background:#EAE2D7;color:#252525">50%</span><span style="width:35%;background:#68645F">35%</span><span style="width:15%;background:#252525;color:#EAE2D7;font-size:.68rem;letter-spacing:-.03em">15%</span>
-                </div>
-                <div class="swatch-labels"><span><strong>燕麥米</strong> #EAE2D7</span><span><strong>石墨灰</strong> #68645F</span><span><strong>炭黑</strong> #252525</span></div>
-              </div>
-            </section>
-          </div>
-
-          <h2>04／穿搭靈感：不用想太多的三種組合</h2>
+          <h2>03／穿搭靈感：不用想太多的三種組合</h2>
           <p><strong>燕麥米＋炭黑：</strong>米色上衣搭配黑色長褲或長裙，簡潔俐落；再用棕色皮帶或包包加一點溫度。</p>
           <p><strong>石墨灰＋柔白：</strong>灰色針織搭白色襯衫，利用領口、袖口的層次，讓整體看起來更有細節。</p>
           <p><strong>炭黑＋煙燻棕：</strong>深色外套搭配棕色鞋履或包款，低調但不單調。不同材質也能創造變化，例如羊毛、棉布與皮革。</p>
 
-          <h2>05／把色彩帶進生活</h2>
+          <h2>04／把色彩帶進生活</h2>
           <p>這組配色也很適合房間、書桌或個人網站。先用燕麥米建立明亮的底，再用炭黑做標題與線條，棕色只出現在少數重點上。當畫面留白足夠，顏色就更容易被看見。</p>
           <div class="article-end">
             <div class="eyebrow">END OF ISSUE 01</div>
@@ -372,12 +335,41 @@
           <div class="aside-note">
             <div class="eyebrow">IN THIS ISSUE</div>
             <h3>本期閱讀清單</h3>
-            <ul><li>認識五種中性色</li><li>三種色彩比例</li><li>三組穿搭與生活主圖</li><li>把色彩帶進生活</li></ul>
+            <ul><li>認識五種中性色</li><li>60／25／15 配色比例</li><li>三種日常穿搭靈感</li><li>把色彩帶進生活</li></ul>
           </div>
         </aside>
       </div>
     </div>
   </article>
+
+  <article id="issue02" class="article-view" aria-labelledby="articleTitle02">
+    <div class="wrap">
+      <div class="article-top">
+        <button class="button button-outline" type="button" id="backHome02">← 返回每期專欄</button>
+        <div class="eyebrow">LIFE &amp; COLOUR · ISSUE 02</div>
+        <h1 id="articleTitle02">棕、白、奶油：<br>溫柔的大地色系</h1>
+        <p class="article-lead">從咖啡色的沉穩、霧白的清爽，到奶油米的柔和，讓同一組大地色延伸到穿搭、材質與生活空間。</p>
+      </div>
+      <div class="article-layout">
+        <div class="article-content">
+          <div class="issue-banner"><div class="eyebrow">WARM EARTH TONES</div><h2 style="margin-top:0">溫暖，但不厚重。</h2><p class="lead-paragraph">有些顏色，不需要太強烈，就能讓人感到安心。棕色像陽光照過的木頭，也像一杯剛沖好的咖啡；白色讓視線變得清澈，奶油米則在兩者之間，留下溫柔而自然的過渡。</p></div>
+          <h2>01／認識本期色票</h2><p>這一期從三種低飽和的大地色出發。它們各自有不同的角色，放在一起卻能自然銜接，適合通勤穿搭，也適合延伸到居家與生活物件。</p>
+          <div class="color-row"><div class="color-chip" style="background:#80624D"></div><div><h3>大地棕 Earth Brown</h3><p class="code">#80624D</p><p>沉穩而有溫度，適合西裝外套、皮革包款、腰帶與鞋履，為整體建立視覺重心。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#F7F2E9"></div><div><h3>柔霧白 Soft White</h3><p class="code">#F7F2E9</p><p>比冷白柔和，適合襯衫、T 恤、寬褲與薄針織，讓畫面明亮、乾淨並保有留白。</p></div></div>
+          <div class="color-row"><div class="color-chip" style="background:#D9C5A5"></div><div><h3>奶油米 Butter Beige</h3><p class="code">#D9C5A5</p><p>連結棕與白的柔和中間色，適合長褲、裙裝、針織與圍巾，讓整體更連貫。</p></div></div>
+          <h2>02／三種比例，三種穿搭表情</h2><p>比例是視覺搭配的起點，不是必須精確計算的規則。選定主色後，再用另外兩色補足層次，就能讓整體更有方向。</p>
+          <div class="ratio-card"><h3>A. 棕色主導｜50／30／20</h3><div class="ratio-bar" aria-label="大地棕50%、柔霧白30%、奶油米20%"><span class="ratio-segment" style="width:50%;background:#80624D;color:#fff">50%</span><span class="ratio-segment" style="width:30%;background:#F7F2E9;color:#252525">30%</span><span class="ratio-segment" style="width:20%;background:#D9C5A5;color:#252525">20%</span></div><div class="ratio-labels"><div>50% 大地棕 <span class="code">#80624D</span> — 主體與輪廓</div><div>30% 柔霧白 <span class="code">#F7F2E9</span> — 提亮整體</div><div>20% 奶油米 <span class="code">#D9C5A5</span> — 柔和過渡</div></div><p>以棕色西裝外套或長版外套建立主體，白色內搭帶來清爽感，再用奶油米褲裝或配件柔化對比。</p></div>
+          <div class="ratio-card" style="margin-top:16px"><h3>B. 明亮平衡｜50／30／20</h3><div class="ratio-bar" aria-label="柔霧白50%、大地棕30%、奶油米20%"><span class="ratio-segment" style="width:50%;background:#F7F2E9;color:#252525">50%</span><span class="ratio-segment" style="width:30%;background:#80624D;color:#fff">30%</span><span class="ratio-segment" style="width:20%;background:#D9C5A5;color:#252525">20%</span></div><div class="ratio-labels"><div>50% 柔霧白 <span class="code">#F7F2E9</span> — 明亮主體</div><div>30% 大地棕 <span class="code">#80624D</span> — 建立重心</div><div>20% 奶油米 <span class="code">#D9C5A5</span> — 柔和連結</div></div><p>以白色襯衫、針織或長褲作為主體，棕色手袋與鞋履增加重心，奶油米則讓整體保持溫柔。</p></div>
+          <div class="ratio-card" style="margin-top:16px"><h3>C. 奶油留白｜50／30／20</h3><div class="ratio-bar" aria-label="奶油米50%、柔霧白30%、大地棕20%"><span class="ratio-segment" style="width:50%;background:#D9C5A5;color:#252525">50%</span><span class="ratio-segment" style="width:30%;background:#F7F2E9;color:#252525">30%</span><span class="ratio-segment" style="width:20%;background:#80624D;color:#fff">20%</span></div><div class="ratio-labels"><div>50% 奶油米 <span class="code">#D9C5A5</span> — 柔和主體</div><div>30% 柔霧白 <span class="code">#F7F2E9</span> — 保留明亮</div><div>20% 大地棕 <span class="code">#80624D</span> — 收束造型</div></div><p>以奶油米針織或長褲為主，搭配柔霧白上衣，再用棕色皮帶、手袋或鞋履收尾，呈現自然又有層次的造型。</p></div>
+          <h2>03／讓材質替顏色增加層次</h2><p>當顏色相近時，材質就成為關鍵。棉麻帶來輕鬆感，針織讓畫面柔軟，皮革則增加輪廓與精緻度。即使全身只有棕、白、奶油三色，只要結合不同材質，也不會顯得單調。</p><p><strong>日常組合一：</strong> 棕色西裝外套＋柔霧白上衣＋奶油米長褲。</p><p><strong>日常組合二：</strong> 奶油米針織衫＋柔霧白裙裝＋棕色皮革手袋。</p><p><strong>日常組合三：</strong> 柔霧白襯衫＋棕色長褲＋奶油米薄外套。</p>
+          <h2>04／把配色帶進生活</h2><p>色彩不只存在於衣櫥。木質桌面、米白窗簾、陶器與咖啡，也能構成同樣的色彩關係。棕色提供穩定感，白色保留明亮，奶油米則讓空間顯得柔和。</p><p>不必一次更換所有物品。從一只杯子、一條桌巾，或一件喜歡的衣服開始，就能慢慢建立自己的色彩秩序。</p>
+          <div class="article-end"><div class="eyebrow">END OF ISSUE 02</div><p>棕、白、奶油不需要刻意追求完美比例。先選擇一個自己喜歡的主色，再用另外兩種顏色建立層次，就已經是很好的開始。</p><p><strong>以一組色彩為起點，慢慢延伸到穿搭、空間與生活風格。</strong></p><button class="button button-primary" type="button" id="backToIssues02">回到每期專欄 ↗</button></div>
+        </div>
+        <aside class="article-aside"><div class="aside-note"><div class="eyebrow">IN THIS ISSUE</div><h3>第二期閱讀清單</h3><ul><li>三種大地色</li><li>三組配色比例</li><li>材質與穿搭組合</li><li>把大地色帶進生活</li></ul></div><div class="aside-note" style="margin-top:16px"><div class="eyebrow">NEXT ISSUE</div><h3>城市深藍・霧白・自然綠</h3><p>下一期，從俐落的城市輪廓與自然色調之間尋找平衡。</p></div></aside>
+      </div>
+    </div>
+  </article>
+
 </main>
 
 <footer>
@@ -410,64 +402,44 @@
   });
 
   const homeView = document.getElementById('homeView');
-  const articleView = document.getElementById('issue01');
-
-  function showArticle() {
-    homeView.classList.add('is-hidden');
-    articleView.classList.add('is-visible');
-    history.pushState({ page: 'issue01' }, '', '#issue01');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
+  const articleViews = { issue01: document.getElementById('issue01'), issue02: document.getElementById('issue02') };
+  const articleTitles = { issue01: '第一期：黑、灰、米 — LIFE & COLOUR', issue02: '第二期：棕、白、奶油 — LIFE & COLOUR' };
+  function showArticle(articleId = 'issue01') {
+    Object.values(articleViews).forEach(view => view.classList.remove('is-visible'));
+    homeView.classList.add('is-hidden'); articleViews[articleId].classList.add('is-visible');
+    history.pushState({ page: articleId }, '', '#' + articleId); window.scrollTo({ top: 0, behavior: 'smooth' }); document.title = articleTitles[articleId];
   }
   function showHome(scrollToIssues = false, updateHistory = true) {
-    articleView.classList.remove('is-visible');
-    homeView.classList.remove('is-hidden');
+    Object.values(articleViews).forEach(view => view.classList.remove('is-visible')); homeView.classList.remove('is-hidden');
     if (updateHistory) history.pushState({ page: 'home' }, '', scrollToIssues ? '#issues' : '#home');
-    document.title = 'LIFE & COLOUR — 生活美學色彩誌';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.title = 'LIFE & COLOUR — 生活美學色彩誌'; window.scrollTo({ top: 0, behavior: 'smooth' });
     if (scrollToIssues) setTimeout(() => document.getElementById('issues').scrollIntoView({ behavior: 'smooth' }), 80);
   }
-  document.querySelectorAll('.open-article').forEach(button => {
-    button.addEventListener('click', () => {
-      button.classList.add('is-pressed');
-      window.setTimeout(() => button.classList.remove('is-pressed'), 180);
-      showArticle();
-    });
-  });
+  document.querySelectorAll('.open-article').forEach(button => button.addEventListener('click', () => {
+    button.classList.add('is-pressed'); window.setTimeout(() => button.classList.remove('is-pressed'), 180); showArticle(button.dataset.article || 'issue01');
+  }));
   document.getElementById('backHome').addEventListener('click', () => showHome(false));
+  document.getElementById('backHome02').addEventListener('click', () => showHome(false));
   document.getElementById('backToIssues').addEventListener('click', () => showHome(true));
-  document.querySelectorAll('[data-home-link]').forEach(link => link.addEventListener('click', (event) => {
+  document.getElementById('backToIssues02').addEventListener('click', () => showHome(true));
+  document.querySelectorAll('[data-home-link]').forEach(link => link.addEventListener('click', event => {
     const href = link.getAttribute('href');
-    if (articleView.classList.contains('is-visible')) {
-      event.preventDefault();
-      showHome(false);
+    if (Object.values(articleViews).some(view => view.classList.contains('is-visible'))) {
+      event.preventDefault(); showHome(false);
       if (href === '#issues' || href === '#about') setTimeout(() => document.querySelector(href).scrollIntoView({behavior:'smooth'}), 80);
     }
   }));
-  window.addEventListener('popstate', () => {
-    if (location.hash === '#issue01') {
-      homeView.classList.add('is-hidden');
-      articleView.classList.add('is-visible');
-      document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
-    } else {
-      articleView.classList.remove('is-visible');
-      homeView.classList.remove('is-hidden');
-      document.title = 'LIFE & COLOUR — 生活美學色彩誌';
-    }
-  });
-  document.getElementById('issue02Btn').addEventListener('click', () => {
-    const message = document.getElementById('issue02Message');
-    message.textContent = '已記下你的興趣！第二期主題預告：棕、白與奶油色。';
-    message.classList.remove('sr-only');
-    const btn = document.getElementById('issue02Btn');
-    btn.classList.add('is-pressed');
-    setTimeout(() => btn.classList.remove('is-pressed'), 180);
-  });
-  if (location.hash === '#issue01') {
-    homeView.classList.add('is-hidden');
-    articleView.classList.add('is-visible');
-    document.title = '第一期：黑、灰、米 — LIFE & COLOUR';
+  function restoreFromHash() {
+    const articleId = location.hash.slice(1);
+    if (articleViews[articleId]) { Object.values(articleViews).forEach(view => view.classList.remove('is-visible')); homeView.classList.add('is-hidden'); articleViews[articleId].classList.add('is-visible'); document.title = articleTitles[articleId]; }
+    else { Object.values(articleViews).forEach(view => view.classList.remove('is-visible')); homeView.classList.remove('is-hidden'); document.title = 'LIFE & COLOUR — 生活美學色彩誌'; }
   }
+  window.addEventListener('popstate', restoreFromHash);
+  document.getElementById('issue03Btn').addEventListener('click', () => {
+    const message = document.getElementById('issue03Message'); message.textContent = '已收藏第三期主題：城市深藍、霧白與自然綠。'; message.classList.remove('sr-only');
+    const btn = document.getElementById('issue03Btn'); btn.classList.add('is-pressed'); setTimeout(() => btn.classList.remove('is-pressed'), 180);
+  });
+  if (location.hash === '#issue01' || location.hash === '#issue02') restoreFromHash();
 </script>
 </body>
 </html>
